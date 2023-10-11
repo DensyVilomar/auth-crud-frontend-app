@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import RootLayout from '../layouts/RootLayout'
+import PrivateLayout from '../layouts/PrivateLayout'
 
 import Index from '../pages/public'
 import Login from '../pages/public/login'
 import Register from '../pages/public/register'
 import Activate from '../pages/public/activate'
-import PrivateLayout from '../layouts/PrivateLayout'
 import Tasks from '../pages/private/tasks'
 
 export const router = createBrowserRouter([
@@ -27,7 +27,7 @@ export const router = createBrowserRouter([
         element: <Register />
       },
       {
-        path: '/activate',
+        path: '/activate/:uid/:token',
         element: <Activate />
       },
       {

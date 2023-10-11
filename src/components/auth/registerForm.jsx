@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useRegisterMutation } from '../../features/auth/authApiSlice'
 
 function RegisterForm() {
@@ -94,6 +95,8 @@ function RegisterForm() {
             onChange={handleChange}
           />
         </div>
+
+        <Link to="/login">Already have an account?</Link>
 
         <button disabled={isLoading} type="submit">
           Register
