@@ -1,11 +1,15 @@
-import { Link } from 'react-router-dom'
-import { useLoginMutation } from '../../features/auth/authApiSlice'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useLoginMutation } from '../../features/auth/authApiSlice'
+import { setToken, setRefresh } from '../../features/auth/authSlice'
 
 function LoginForm() {
   const [credentials, setCredentials] = useState({ email: '', password: '' })
 
   const [login, { isLoading }] = useLoginMutation()
+
+  const dispatch = useDispatch()
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value })
@@ -19,6 +23,9 @@ function LoginForm() {
 
       localStorage.setItem('accessToken', JSON.stringify(data.access))
       localStorage.setItem('refreshToken', JSON.stringify(data.refresh))
+
+      dispatch(setToken(data.access))
+      dispatch(setRefresh(data.refresh))
     } catch (error) {
       console.error('Login failed')
     }

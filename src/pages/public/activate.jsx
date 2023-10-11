@@ -1,4 +1,4 @@
-import ActivateBtn from '../../components/auth/activate'
+import ActivateBtn from '../../components/auth/activateBtn'
 
 function Activate() {
   return (
