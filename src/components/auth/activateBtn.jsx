@@ -1,21 +1,28 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useActivationMutation } from '../../features/auth/authApiSlice'
 
 function ActivateBtn() {
   const params = useParams()
+
+  const navigate = useNavigate()
 
   const parameters = {
     uid: params.uid,
     token: params.token
   }
 
-  const [activate, { isLoading }] = useActivationMutation()
+  const [activate, { isLoading, isError }] = useActivationMutation()
 
   const handleActivate = async (e) => {
     e.preventDefault()
 
     try {
       await activate(parameters)
+      if (isError) {
+        console.error('Activation failed')
+      } else {
+        navigate('/login')
+      }
     } catch (error) {
       console.error('Activation failed')
     }
@@ -24,7 +31,7 @@ function ActivateBtn() {
   return (
     <div>
       <button disabled={isLoading} onClick={handleActivate}>
-        Activate
+        Activate your account
       </button>
     </div>
   )
