@@ -21,8 +21,8 @@ function LoginForm() {
     try {
       const { data } = await login(credentials)
 
-      localStorage.setItem('accessToken', JSON.stringify(data.access))
-      localStorage.setItem('refreshToken', JSON.stringify(data.refresh))
+      localStorage.setItem('accessToken', data.access)
+      localStorage.setItem('refreshToken', data.refresh)
 
       dispatch(setToken(data.access))
       dispatch(setRefresh(data.refresh))

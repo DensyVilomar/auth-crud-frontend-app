@@ -4,12 +4,12 @@ import { useActivationMutation } from '../../features/auth/authApiSlice'
 function ActivateBtn() {
   const params = useParams()
 
-  const [activate, { isLoading }] = useActivationMutation()
-
   const parameters = {
     uid: params.uid,
     token: params.token
   }
+
+  const [activate, { isLoading }] = useActivationMutation()
 
   const handleActivate = async (e) => {
     e.preventDefault()
