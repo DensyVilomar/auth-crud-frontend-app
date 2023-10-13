@@ -8,7 +8,7 @@ function Navbar() {
     <div>
       <header className="nav__header">
         <nav className="navbar">
-          <NavLink className="logo" to="/">
+          <NavLink className="logo" to={isAuth ? '/home' : '/'}>
             Logo
           </NavLink>
           <ul className="navbar__menu">
