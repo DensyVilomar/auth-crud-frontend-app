@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { useIsAuth } from '../app/hooks'
 import { useDispatch } from 'react-redux'
 import { Outlet, Navigate } from 'react-router-dom'
-import { useMyInfoQuery } from '../features/auth/authApiSlice'
 import { setUserInfo } from '../features/auth/authSlice'
+import { useMyInfoQuery } from '../features/auth/authApiSlice'
 
 function PrivateLayout() {
   const isAuth = useIsAuth()
@@ -16,6 +16,8 @@ function PrivateLayout() {
     if (!localStorage.getItem('userInfo') && !isLoading && data) {
       localStorage.setItem('userInfo', JSON.stringify(data))
       dispatch(setUserInfo(data))
+
+      window.location.reload()
     }
   }, [data, dispatch, isLoading])
 

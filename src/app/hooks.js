@@ -1,4 +1,5 @@
-import { useSelector } from 'react-redux'
+import { logout } from '../features/auth/authSlice'
+import { useSelector, useDispatch } from 'react-redux'
 
 export const useIsAuth = () => {
   const isAuthenticated = useSelector((state) => state.auth.token)
@@ -12,4 +13,16 @@ export const useUserInfo = () => {
   if (userInfo) {
     return userInfo
   }
+}
+
+export const useLogout = () => {
+  const dispatch = useDispatch()
+
+  const handleLogout = () => {
+    dispatch(logout())
+
+    window.location.reload()
+  }
+
+  return handleLogout
 }

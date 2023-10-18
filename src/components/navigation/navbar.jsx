@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom'
-import { useIsAuth } from '../../app/hooks'
+import { useIsAuth, useLogout } from '../../app/hooks'
 
 function Navbar() {
   const isAuth = useIsAuth()
+
+  const logout = useLogout()
 
   return (
     <div>
@@ -45,6 +47,13 @@ function Navbar() {
                 </NavLink>
               </li>
             )}
+            {isAuth ? (
+              <li className="navbar__menu-item">
+                <NavLink onClick={logout} className="navbar__menu-link">
+                  logout
+                </NavLink>
+              </li>
+            ) : null}
           </ul>
         </nav>
       </header>
