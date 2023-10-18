@@ -40,20 +40,19 @@ function Navbar() {
                 </NavLink>
               </li>
             )}
-            {isAuth ? null : (
-              <li className="navbar__menu-item">
-                <NavLink to="/register" className="navbar__menu-link">
-                  register
-                </NavLink>
-              </li>
-            )}
             {isAuth ? (
               <li className="navbar__menu-item">
                 <NavLink onClick={logout} className="navbar__menu-link">
                   logout
                 </NavLink>
               </li>
-            ) : null}
+            ) : (
+              <li className="navbar__menu-item">
+                <NavLink to="/register" className="navbar__menu-link">
+                  register
+                </NavLink>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
