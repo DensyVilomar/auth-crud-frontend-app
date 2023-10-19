@@ -1,6 +1,8 @@
+import '../../stylesheets/pages/public/index.css'
+
 function Index() {
   return (
-    <div>
+    <div id="index__main-container">
       <h1>Index</h1>
     </div>
   )

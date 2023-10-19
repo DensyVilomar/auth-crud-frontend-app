@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import { useIsAuth, useLogout } from '../../app/hooks'
 
+import '../../stylesheets/components/navigation/navbar.css'
+
 function Navbar() {
   const isAuth = useIsAuth()
 
@@ -17,39 +19,39 @@ function Navbar() {
             {isAuth ? (
               <li className="navbar__menu-item">
                 <NavLink to="/home" className="navbar__menu-link">
-                  home
+                  Home
                 </NavLink>
               </li>
             ) : (
               <li className="navbar__menu-item">
                 <NavLink to="/" className="navbar__menu-link">
-                  home
+                  Home
                 </NavLink>
               </li>
             )}
             {isAuth ? (
               <li className="navbar__menu-item">
                 <NavLink to="/tasks" className="navbar__menu-link">
-                  tasks
+                  Tasks
                 </NavLink>
               </li>
             ) : (
               <li className="navbar__menu-item">
                 <NavLink to="/login" className="navbar__menu-link">
-                  login
+                  Login
                 </NavLink>
               </li>
             )}
             {isAuth ? (
               <li className="navbar__menu-item">
                 <NavLink onClick={logout} className="navbar__menu-link">
-                  logout
+                  Logout
                 </NavLink>
               </li>
             ) : (
               <li className="navbar__menu-item">
                 <NavLink to="/register" className="navbar__menu-link">
-                  register
+                  Register
                 </NavLink>
               </li>
             )}

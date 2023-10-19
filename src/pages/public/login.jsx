@@ -1,9 +1,10 @@
 import LoginForm from '../../components/auth/loginForm'
 
+import '../../stylesheets/pages/public/login.css'
+
 function Login() {
   return (
-    <div>
-      <h1>Login</h1>
+    <div id="login__main-container">
       <LoginForm />
     </div>
   )
