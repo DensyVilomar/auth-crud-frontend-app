@@ -1,6 +1,8 @@
+import '../../stylesheets/pages/private/home.css'
+
 function Home() {
   return (
-    <div>
+    <div id="home__main-container">
       <h1>Home</h1>
     </div>
   )
