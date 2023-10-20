@@ -1,6 +1,11 @@
-import { useGetAllTasksQuery } from '../../features/tasks/tasksApiSlice'
+import {
+  useGetAllTasksQuery,
+  useDeleteTaskMutation
+} from '../../features/tasks/tasksApiSlice'
 
 function TasksList() {
+  const [deleteTask, { isLoading: deleting }] = useDeleteTaskMutation()
+
   const { data, isLoading, isError } = useGetAllTasksQuery()
 
   if (isError) {
@@ -21,6 +26,10 @@ function TasksList() {
         <div key={task.id}>
           <h2>Title: {task.title}</h2>
           <strong>Deadline: {task.deadline}</strong>
+          <button>Update</button>
+          <button disabled={deleting} onClick={() => deleteTask(task.id)}>
+            Delete
+          </button>
         </div>
       ))}
     </div>
