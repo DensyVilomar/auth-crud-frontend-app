@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useForm } from '../../../hooks/form'
 import { useRegisterMutation } from '../../features/auth/authApiSlice'
 
 function RegisterForm() {
-  const [registerData, setRegisterData] = useState({
+  const registerData = {
     email: '',
     username: '',
     first_name: '',
@@ -11,19 +11,17 @@ function RegisterForm() {
     date_of_birth: '',
     password: '',
     re_password: ''
-  })
+  }
+
+  const { form, handleChange } = useForm(registerData)
 
   const [register, { isLoading }] = useRegisterMutation()
-
-  const handleChange = (e) => {
-    setRegisterData({ ...registerData, [e.target.name]: e.target.value })
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      await register(registerData)
+      await register(form)
     } catch (error) {
       console.error('Registration failed')
     }
@@ -37,7 +35,7 @@ function RegisterForm() {
           <input
             type="email"
             name="email"
-            value={registerData.email}
+            value={form.email}
             placeholder="Email"
             onChange={handleChange}
           />
@@ -46,7 +44,7 @@ function RegisterForm() {
           <input
             type="text"
             name="username"
-            value={registerData.username}
+            value={form.username}
             placeholder="Username"
             onChange={handleChange}
           />
@@ -55,7 +53,7 @@ function RegisterForm() {
           <input
             type="text"
             name="first_name"
-            value={registerData.first_name}
+            value={form.first_name}
             placeholder="First Name"
             onChange={handleChange}
           />
@@ -64,7 +62,7 @@ function RegisterForm() {
           <input
             type="text"
             name="last_name"
-            value={registerData.last_name}
+            value={form.last_name}
             placeholder="Last Name"
             onChange={handleChange}
           />
@@ -73,7 +71,7 @@ function RegisterForm() {
           <input
             type="date"
             name="date_of_birth"
-            value={registerData.date_of_birth}
+            value={form.date_of_birth}
             placeholder="Date of birth"
             onChange={handleChange}
           />
@@ -82,7 +80,7 @@ function RegisterForm() {
           <input
             type="password"
             name="password"
-            value={registerData.password}
+            value={form.password}
             placeholder="Password"
             onChange={handleChange}
           />
@@ -91,7 +89,7 @@ function RegisterForm() {
           <input
             type="password"
             name="re_password"
-            value={registerData.re_password}
+            value={form.re_password}
             placeholder="Repeat Password"
             onChange={handleChange}
           />

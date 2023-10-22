@@ -10,9 +10,7 @@ export const useIsAuth = () => {
 export const useUserInfo = () => {
   const userInfo = useSelector((state) => state.auth.user)
 
-  if (userInfo) {
-    return userInfo
-  }
+  return userInfo
 }
 
 export const useLogout = () => {

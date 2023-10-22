@@ -1,25 +1,26 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { useForm } from '../../../hooks/form'
 import { useLoginMutation } from '../../features/auth/authApiSlice'
 import { setToken, setRefresh } from '../../features/auth/authSlice'
 
 function LoginForm() {
-  const [credentials, setCredentials] = useState({ email: '', password: '' })
+  const credentials = {
+    email: '',
+    password: ''
+  }
+
+  const { form, handleChange } = useForm(credentials)
 
   const [login, { isLoading }] = useLoginMutation()
 
   const dispatch = useDispatch()
 
-  const handleChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value })
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const { data } = await login(credentials)
+      const { data } = await login(form)
 
       localStorage.setItem('accessToken', data.access)
       localStorage.setItem('refreshToken', data.refresh)
@@ -39,7 +40,7 @@ function LoginForm() {
           <input
             type="email"
             name="email"
-            value={credentials.email}
+            value={form.email}
             placeholder="Email"
             onChange={handleChange}
           />
@@ -49,13 +50,15 @@ function LoginForm() {
           <input
             type="password"
             name="password"
-            value={credentials.password}
+            value={form.password}
             placeholder="Password"
             onChange={handleChange}
           />
         </div>
 
-        <Link to="/register">Do not have an account?</Link>
+        <Link>Forgot your password?</Link>
+
+        <Link to="/register">Sign Up</Link>
 
         <button disabled={isLoading} type="submit">
           Login
