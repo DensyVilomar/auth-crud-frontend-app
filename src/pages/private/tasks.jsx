@@ -6,7 +6,6 @@ import '../../stylesheets/pages/private/tasks.css'
 function Tasks() {
   return (
     <div id="tasks__main-container">
-      <h1>Tasks</h1>
       <div className="tasksForm__container">
         <TasksForm />
       </div>

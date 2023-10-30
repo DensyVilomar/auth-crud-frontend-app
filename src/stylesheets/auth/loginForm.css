@@ -1,0 +1,91 @@
+.loginForm__container {
+  width: 420px;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #ffffff44;
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 30px 40px;
+}
+
+.loginForm__header {
+  text-align: center;
+}
+
+.input__box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 40px 0;
+}
+
+.input__box label {
+  font-weight: bold;
+  margin: 5px 0;
+  padding-left: 16px;
+  color: #ddd;
+}
+
+.input__box input {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid #ffffff13;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+}
+
+.input__box input::placeholder {
+  color: #fff8;
+}
+
+.input__box i {
+  position: absolute;
+  right: 20px;
+  top: 85%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+
+.loginForm__button {
+  width: 100%;
+  height: 45px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginForm__button:hover {
+  background-color: #97e055;
+  transition: 300ms;
+}
+
+.loginForm__redirect {
+  width: 100%;
+  padding: 0 3%;
+  margin: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loginForm__link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.loginForm__link:hover {
+  text-decoration: underline;
+}

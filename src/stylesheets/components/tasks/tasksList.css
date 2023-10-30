@@ -1,0 +1,136 @@
+.tasksList__main-container {
+  background-image: linear-gradient(
+    to top,
+    #ffff5c 0,
+    #ffff54 10%,
+    #ffff51 20%,
+    #ffff50 30%,
+    #e3ff51 40%,
+    #bcf253 50%,
+    #97e055 60%,
+    #75d059 70%,
+    #55c25d 80%,
+    #31b762 90%,
+    #00ae68 100%
+  );
+  color: #000;
+  border-radius: 22px;
+  height: 336px;
+  min-width: 700px;
+  padding: 0.5rem;
+  overflow-y: auto;
+}
+
+.tasksList__header {
+  text-align: center;
+  padding: 1rem;
+  color: #bcf253;
+}
+
+.task__container {
+  padding: 10px;
+  margin: 0 auto;
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px #000 solid;
+  margin-bottom: 16px;
+}
+
+.task__title {
+  width: calc(100% / 4);
+  word-wrap: break-word;
+}
+
+.task__deadline span {
+  color: #f00;
+}
+
+.completed__container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.completed__container-label {
+  user-select: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.done {
+  color: #0f0;
+}
+
+.buttons__container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.button {
+  border: 1px solid #000;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 3px;
+  user-select: none;
+}
+
+.task__update-button {
+  background-color: #0f0;
+  width: 50px;
+  align-items: center;
+  text-align: center;
+}
+
+.task__update-button i {
+  font-size: 1.4em;
+}
+
+.task__update-button:hover {
+  background-color: #00aa00;
+}
+
+.task__delete-button {
+  background-color: #f00;
+  width: 50px;
+  align-items: center;
+  text-align: center;
+}
+
+.task__delete-button i {
+  font-size: 1.4em;
+}
+
+.task__delete-button:hover {
+  background-color: #880000;
+}
+
+/* NO TASKS */
+
+.general__container {
+  height: 336px;
+  min-width: 700px;
+  background-color: #fff;
+  border-radius: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to top,
+    #ffff5c 0,
+    #ffff54 10%,
+    #ffff51 20%,
+    #ffff50 30%,
+    #e3ff51 40%,
+    #bcf253 50%,
+    #97e055 60%,
+    #75d059 70%,
+    #55c25d 80%,
+    #31b762 90%,
+    #00ae68 100%
+  );
+}

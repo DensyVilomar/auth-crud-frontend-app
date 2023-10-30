@@ -1,20 +1,13 @@
 import { NavLink } from 'react-router-dom'
-// import { useState } from 'react'
 
 import { useIsAuth, useLogout } from '../../app/hooks'
 
 import '../../stylesheets/components/navigation/navbar.css'
 
 function Navbar() {
-  // const [menuOpened, setMenuOpened] = useState(true)
-
   const isAuth = useIsAuth()
 
   const logout = useLogout()
-
-  // const handleClick = (e) => {
-  //   setMenuOpened(!menuOpened)
-  // }
 
   return (
     <div>
@@ -25,8 +18,8 @@ function Navbar() {
 
         <input type="checkbox" id="check" />
         <label htmlFor="check" className="icons">
-          <box-icon name="menu" id="menu-icon"></box-icon>
-          <box-icon name="x" id="close-icon"></box-icon>
+          <i className="bx bx-menu" id="menu-icon"></i>
+          <i className="bx bx-x" id="close-icon"></i>
         </label>
 
         <nav className="navbar">
@@ -45,7 +38,7 @@ function Navbar() {
             </NavLink>
           ) : (
             <NavLink to="/login" className="navbar__menu-link">
-              Login
+              Sign in
             </NavLink>
           )}
           {isAuth ? (
@@ -54,7 +47,7 @@ function Navbar() {
             </NavLink>
           ) : (
             <NavLink to="/register" className="navbar__menu-link">
-              Register
+              Sign up
             </NavLink>
           )}
         </nav>

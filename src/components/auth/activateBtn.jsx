@@ -24,7 +24,8 @@ function ActivateBtn() {
         navigate('/login')
       }
     } catch (error) {
-      console.error('Activation failed')
+      // TODO: Add an alert
+      alert('Account activation failed')
     }
   }
 

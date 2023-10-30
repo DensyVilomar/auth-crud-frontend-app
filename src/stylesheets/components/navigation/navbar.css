@@ -17,7 +17,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: red;
   background-color: #00000001;
   backdrop-filter: blur(5px);
   z-index: -1;
@@ -91,6 +90,14 @@
     backdrop-filter: blur(5px);
     transition: 300ms ease;
     overflow: hidden;
+  }
+
+  #menu-icon {
+    color: #fff;
+  }
+
+  #close-icon {
+    color: #fff;
   }
 
   #check:checked ~ .navbar {

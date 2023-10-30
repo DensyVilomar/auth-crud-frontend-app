@@ -1,55 +1,60 @@
-import { useState } from 'react'
+import { useForm } from '../../../hooks/form'
 import { useUserInfo } from '../../app/hooks'
 import { useCreateTaskMutation } from '../../features/tasks/tasksApiSlice'
+
+import '../../stylesheets/components/tasks/tasksForm.css'
 
 function TasksForm() {
   const user = useUserInfo()
 
-  const [task, setTask] = useState({
+  const taskData = {
     title: '',
     deadline: '',
     creator: user.id
-  })
+  }
+
+  const { form, handleChange } = useForm(taskData)
 
   const [createTask, { isLoading }] = useCreateTaskMutation()
-
-  const handleChange = (e) => {
-    setTask({ ...task, [e.target.name]: e.target.value })
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      await createTask(task)
+      await createTask(form)
     } catch (error) {
       console.error('Error')
     }
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
+    <div className="taskForm__container">
+      <h2 className="taskForm__header">Create your tasks</h2>
+      <form className="taskForm__box" onSubmit={handleSubmit}>
+        <div className="taskForm__input-box">
+          <label htmlFor="">Title</label>
           <input
+            required
             type="text"
             name="title"
-            value={task.title}
-            placeholder="Title"
+            maxLength={50}
+            value={form.title}
+            placeholder="Do the dishes"
             onChange={handleChange}
           />
         </div>
-        <div>
+        <div className="taskForm__input-box">
+          <label htmlFor="">Deadline</label>
           <input
+            required
             type="date"
             name="deadline"
-            value={task.deadline}
-            placeholder="Deadline"
+            value={form.deadline}
             onChange={handleChange}
           />
         </div>
 
-        <button disabled={isLoading} type="submit">
+        <button className="taskForm__button" disabled={isLoading} type="submit">
           Create Task
         </button>
       </form>
